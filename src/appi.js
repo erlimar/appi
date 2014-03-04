@@ -1,9 +1,26 @@
 /**
- * Appi JavaScript Toolkit Library v0.0.1
+ * Appi JavaScript Library v0.0.1
  *
- * Mobile App Interface Toolkit for developers.
+ * Appi vem de "Application Interface" (Aqui, interface tem o ponto de vista
+ * daquilo que o usuário vê - ou seja, o desenvolvimento do "front-end" por
+ * exemplo)
+ *
+ * É uma biblioteca que auxilia na definição da interface para aplicações Web e
+ * mobile. Voltada principalmente para o estágio de desenvolvimento, permitindo
+ * que após os testes de desenvolvimento da interface, a mesma possa ser
+ * acoplada, a um "back-end" por exemplo, e passar a funcionar imediatamente.
+ *
+ * Appi é útil principalmente nos processos de desenvolvimento onde o "front-end"
+ * é desenvolvido antes do "back-end", ou quando os mesmos são desenvolvidos
+ * paralelamente mas por equipes distintas. Esse processo de desenvolvimento
+ * prevê que o "front-end" e o "back-end" são componentes distintos do mesmo
+ * produto, que devem existir coesos de forma isolada, mas que funcionam
+ * acoplados para provê um sistema qualquer. E para isso respondem a um contrato,
+ * que por sua vez é uma INTERFACE implementada pelo "back-end" e consumida pelo
+ * "front-end".
  *
  * Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
+ * Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
  */
 +function (scope, undefined) {
   'use strict';
@@ -14,6 +31,8 @@
   {
     /**
      * appi.env
+     *
+     * @description
      *
      * Exportação das variáveis de ambiente
      */
@@ -26,9 +45,9 @@
      *
      * Realiza o setup da aplicação
      *
-     * @param {object} settings     Configurações do Setup com a seguinte interface.
+     * @param {object} ISettings     Configurações do Setup com a seguinte interface.
      *
-     *   interface for settings {
+     *   interface ISettings {
      *      [object] scope
      *      --------------
      *      Objeto de escopo do aplicativo. Normalemente 'window'
@@ -127,6 +146,10 @@
     },
 
     /**
+     * appi.trace
+     *
+     * @description
+     *
      * Um atalho para 'console.log' quando o mesmo estiver disponível
      */
     trace: function () {
@@ -138,7 +161,9 @@
     },
 
     /**
-     * appi.lambda
+     * appi.isolate
+     *
+     * @description
      *
      * Faz com que a declaração e execução de métodos seja mais intuitiva
      * para os menos acostumados com JavaScript, ou, para os já acostumados,
@@ -177,7 +202,7 @@
      *  )
      * </pre>
      */
-    lambda: function () {
+    isolate: function () {
 
       if (arguments.length < 1)
         return;
@@ -217,6 +242,8 @@
 
     /**
      * appi.module
+     *
+     * @description
      *
      * UNDONE: Ideia para cria um novo módulo
      */
@@ -321,6 +348,10 @@
     },
 
     /**
+     * appi.isUndefined
+     *
+     * @description
+     *
      * Verifica se um objeto/variável é indefinido.
      *
      * Existem várias formas de se verificar se um determinado
@@ -335,6 +366,10 @@
     },
 
     /**
+     * appi.isString
+     *
+     * @description
+     *
      * Verifica se um objeto/variável é uma string.
      *
      * @param varObject Qualquer identificador de variável
@@ -345,6 +380,10 @@
     },
 
     /**
+     * appi.isNumber
+     *
+     * @description
+     *
      * Verifica se um objeto/variável é um número.
      *
      * @param varObject Qualquer identificador de variável
@@ -355,12 +394,63 @@
     },
 
     /**
+     * appi.isFunction
+     *
+     * @description
+     *
      * Verifica se um objeto/variável é uma função.
      *
      * @param varObject Qualquer identificador de variável
      */
     isFunction: function (varObject) {
       return (typeof varObject === typeof function () { });
+    },
+
+    /**
+     * appi.describeFunction
+     *
+     * @description
+     *
+     * Descreve/Deserializa uma função, identificando seu nome e parâmetros
+     * declarados.
+     *
+     * @param funcObject Objeto de função para descrever.
+     *
+     * @return {object} IFunctionDescritor da função
+     *
+     * interface IFunctionDescriptor {
+     *
+     *      [string] name
+     *      --------------
+     *      Nome da função. Ou null se for uma função anônima.
+     *
+     *      [Array] params
+     *      --------------
+     *      Lista com nome dos parâmetros.
+     * }
+     */
+    describeFunction: function(funcObject) {
+
+      if(!this.isFunction(funcObject))
+        throw 'appi.describeFunction @funcObject param is not a function';
+
+      var string_ =  funcObject.toString();
+
+      var regex_ = /^function\s([a-z0-9\_]*)\(([a-z0-9\_\s,\$]*)\)[\{]*/gim;
+      var match_ = regex_.exec(string_);
+
+      if(match_ == null)
+        throw 'appi.describeFunction pattern without result';
+
+      var descriptor_ = {
+        name: match_[1] || null,
+        params: match_[2].split(',')
+      };
+
+      for(var i in descriptor_.params)
+        descriptor_.params[i] = descriptor_.params[i].trim();
+
+      return descriptor_;
     }
   };
 
