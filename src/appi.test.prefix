@@ -1,0 +1,14 @@
+/**
+ * <%= pkg.modules.test.name %> v<%= pkg.modules.test.version %>
+ * <%= pkg.modules.test.description %>
+ *
+ * Essa biblioteca foi criada especificamente para prover testes unitários 
+ * bastante simples e limpos que auxiliasse o processo de desenvolvimento
+ * exclusivo de "Appi".
+ *
+ * Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
+ * Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+ *
+ * License: <%= pkg.license %>
+ */
+(function(root, undefined) {

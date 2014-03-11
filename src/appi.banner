@@ -1,0 +1,9 @@
+/**
+ * <%= pkg.name %> v<%= pkg.version %> [<%= grunt.template.today("dd-mm-yyyy") %>]
+ * <%= pkg.description %>
+ *
+ * Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
+ * Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+ *
+ * License: <%= pkg.license %>
+ */

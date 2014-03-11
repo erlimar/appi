@@ -1,13 +1,13 @@
 {
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": "src",
-			"name": "Source",
+    "folders":
+    [
+        {
+            "follow_symlinks": true,
+            "path": "src",
+            "name": "Source",
             "folder_exclude_patterns": [],
             "file_exclude_patterns": []
-		},
+        },
         {
             "follow_symlinks": true,
             "path": "doc",
@@ -21,8 +21,22 @@
             "name": "Test",
             "folder_exclude_patterns": [],
             "file_exclude_patterns": []
+        },
+        {
+            "follow_symlinks": true,
+            "path": "dist",
+            "name": "Distribution",
+            "folder_exclude_patterns": [],
+            "file_exclude_patterns": []
+        },
+        {
+            "follow_symlinks": true,
+            "path": "./",
+            "name": "Project",
+            "folder_exclude_patterns": ["*"],
+            "file_exclude_patterns": ["*.sublime*","*.html"]
         }
-	],
+    ],
 
     "settings":
     {
@@ -31,7 +45,6 @@
         "rulers": [80, 100, 120],
         "smart_indent": true,
         "use_tab_stops": true,
-        "detect_indentation": true,
         "auto_indent": true,
         "smart_indent": true,
         "highlight_line": true,

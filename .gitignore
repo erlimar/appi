@@ -1,2 +1,9 @@
-*.sublime-workspace
+node_modules/
+dist/
+
 doc/*.html
+
+*.sublime-workspace
+*.log
+
+README.html
