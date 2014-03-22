@@ -2,37 +2,37 @@
     "folders":
     [
         {
-            "follow_symlinks": true,
-            "path": "src",
             "name": "Source",
+            "path": "src",
+            "follow_symlinks": true,
             "folder_exclude_patterns": [],
             "file_exclude_patterns": []
         },
         {
-            "follow_symlinks": true,
-            "path": "doc",
             "name": "Documentation",
+            "path": "doc",
+            "follow_symlinks": true,
             "folder_exclude_patterns": [],
             "file_exclude_patterns": ["*.htm", "*.html"]
         },
         {
-            "follow_symlinks": true,
-            "path": "test",
             "name": "Test",
+            "path": "test",
+            "follow_symlinks": true,
             "folder_exclude_patterns": [],
             "file_exclude_patterns": []
         },
         {
-            "follow_symlinks": true,
-            "path": "dist",
             "name": "Distribution",
+            "path": "dist",
+            "follow_symlinks": true,
             "folder_exclude_patterns": [],
             "file_exclude_patterns": []
         },
         {
-            "follow_symlinks": true,
-            "path": "./",
             "name": "Project",
+            "path": "./",
+            "follow_symlinks": true,
             "folder_exclude_patterns": ["*"],
             "file_exclude_patterns": ["*.sublime*","*.html"]
         }

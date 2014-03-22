@@ -1,0 +1,7 @@
+{
+  "test": {
+    "name":"appi.test",
+    "version":"0.0.1",
+    "description":"Appi Unit Test JavaScript Library"
+  }
+}

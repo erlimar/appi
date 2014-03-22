@@ -19,3 +19,43 @@ Essa é uma biblioteca auxiliar para __appi__, foi escrita para permitir a reali
             }
         ]
     });
+
+Outra opção:
+
+    appi.test.unit({
+
+      component: 'Componente de Mock',
+
+      setup: function(){
+        var environment_ = {
+          valueA: 'Valor de A',
+          valueB: 'Valor de B',
+          numbers: [98, 8, 4, 59, 10]
+        };
+        return  environment_;
+      },
+
+      scenario: {
+        name: 'Caminho Feliz!',
+        description: [
+          'Partindo do pré-suposto que o usuário irá sempre fazer o que se espera',
+          'que ele faça, e você pode duvidar que isso aconteça. As premissas devem',
+          'ser atendidas perfeitamente.'
+        ],
+        premisses: {
+          
+          'Premissa A': function(environment) {
+          },
+          
+          'Premissa B': function(environment) {
+            expected(2).equals('1' + '1');
+            exception(function(){
+              new MyException('ops!');
+            }).same(new MyException('ops!'));
+          },
+          
+          'Premissa C': function(environment) {
+          }
+        }
+      }
+    });

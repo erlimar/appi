@@ -14,6 +14,11 @@
             'module': module,
             'setup': setup,
             'timer': timer,
-            'trace': trace
+            'trace': trace,
+            'describeFunction': describeFunction,
+            'isFunction': isFunction,
+            'isNumber': isNumber,
+            'isString': isString,
+            'isUndefined': isUndefined
         });
     }

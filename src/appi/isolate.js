@@ -44,12 +44,8 @@
         if (arguments.length < 1)
             return;
 
-        // Recolhendo as funções para executar e separando-as dos parâmetros
-        // que serão passados a cada função.
-        //
-        // NOTE:  Toda função é separada para execução, e todo parâmetro
-        //        NÃO FUNÇÃO, é enfileirado para ser repassado a cada
-        //        função como parâmetros.
+        // Toda função é separada para execução, e todo parâmetro NÃO FUNÇÃO,
+        // é enfileirado para ser repassado a cada função como parâmetro.
         var methodStack_ = [];
         var paramStack_ = [];
 
@@ -60,15 +56,14 @@
                 paramStack_.push(arguments[argIndex]);
         }
 
-        // Ao menos um método é requerido
         if (methodStack_.length < 1)
             throw 'appi.isolate require a method to call';
 
-        // Executando os métodos em lote
-        for (var methodIndex = 0; methodIndex < methodStack_.length; methodIndex++) {
-            var function_ = methodStack_[methodIndex];
-            // A própria função é passada como ponteiro "this" quando "appi.setup" ainda
-            // não tiver sido chamada, ou o escopo não tenha sido informado.
+        for (var index = 0; index < methodStack_.length; index++) {
+            var function_ = methodStack_[index];
+            // A própria função é passada como ponteiro "this" enquando
+            // "appi.setup" ainda não for chamada, ou o escopo não tenha sido
+            // informado.
             var this_ = isUndefined(settings_.scope) ? function_ : settings_.scope;
             function_.apply(this_, paramStack_);
         }

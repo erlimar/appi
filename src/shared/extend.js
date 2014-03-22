@@ -7,7 +7,7 @@
      * @param props     Propriedades que extenderão o objeto.
      */
     function extend(obj, props) {
-        // TODO: Verificar se os parâmetros são OBJECT
+        // TODO: Fazer verificações de segurança
         for(var prop in props)
             obj[prop] = props[prop];
     };

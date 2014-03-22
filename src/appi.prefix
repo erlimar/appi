@@ -1,5 +1,5 @@
 /**
- * <%= pkg.name %> v<%= pkg.version %>
+ * <%= pkg.name %> v<%= pkg.version %> [#build: <%= grunt.template.today("yyyymmdd.HHMM") %>]
  * <%= pkg.description %>
  *
  * Appi vem de "Application Interface" (Aqui, interface tem o ponto de vista

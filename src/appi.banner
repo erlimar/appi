@@ -1,5 +1,5 @@
 /**
- * <%= pkg.name %> v<%= pkg.version %> [<%= grunt.template.today("dd-mm-yyyy") %>]
+ * <%= pkg.name %> v<%= pkg.version %> [#build: <%= grunt.template.today("yyyymmdd.HHMM") %>]
  * <%= pkg.description %>
  *
  * Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com

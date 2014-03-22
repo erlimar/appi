@@ -1,6 +1,6 @@
     'use strict';
 
-    $root = root;
+    var $root = root;
 
     /**
      * Construtor

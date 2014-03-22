@@ -43,7 +43,6 @@
     function setup() {
         // Selftest
         (function (args) {
-            // Validando assinatura do método
             if (args.length !== 1)
                 throw 'appi.setup argument signature is invalid';
 
@@ -92,11 +91,11 @@
                     trace('Discarding setup @setting.' + paramName_);
         }).bind(this, arguments).apply()
 
-        // Exportando as variáveis de ambiente fornecidas
+        // Exportando as variáveis de ambiente
         for (var envName_ in settings_.environment)
             environment_[envName_.toUpperCase()] = settings_.environment[envName_];
 
-        // Exportando a instância da aplicação para o escopo informado
+        // Exportando a instância da aplicação para o escopo root
         var scopeRef_ = settings_.scope;
         scopeRef_[settings_.appName] = scopeRef_[settings_.builtinName] || settings_.appMock;
     };
