@@ -88,6 +88,6 @@ module.exports = function(grunt) {
         'concat',
         'uglify',
         /*'ngdocs',*/
-        'watch'
+        /*'watch'*/
     ]);
 };

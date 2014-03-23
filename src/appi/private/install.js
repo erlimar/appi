@@ -19,6 +19,15 @@
             'isFunction': isFunction,
             'isNumber': isNumber,
             'isString': isString,
-            'isUndefined': isUndefined
+            'isUndefined': isUndefined,
+            'isBoolean': isBoolean,
+            'isArray': isArray,
+            'readyArguments': readyArguments,
+            'ARGS': {
+                'string': ARGSTypeString,
+                'any': ARGSTypeAny,
+                'function': ARGSTypeFunction,
+                'array': ARGSTypeArray
+            }
         });
     }

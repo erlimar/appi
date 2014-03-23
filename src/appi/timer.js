@@ -29,7 +29,7 @@
 
         if (typeof counter !== typeof 0 && typeof counter !== typeof undefined)
             throw 'appi.timer @counter param is invalid';
-
+        
         // Por questões de segurança (performance), um valor mínimo para timeOut
         // é estabelecido aqui.
         var minTimeOut = 100;
