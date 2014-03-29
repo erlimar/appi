@@ -1,0 +1,9 @@
+///
+/// @module <%= modules.test.name %>
+/// <%= modules.test.description %>
+///
+/// Este módulo foi criado especificamente para prover uma forma mais simples
+/// de utilizar testes unitários no processo de desenvolvimento, especificamente
+/// no processo de desenvolvimento da biblioteca "Appi".
+///
+(function(root, undefined) {

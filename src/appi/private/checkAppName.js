@@ -3,10 +3,10 @@
      * de nomeação de identificadores do JavaScript.
      */
     function checkAppName(appName) {
-        if (isUndefined(appName))
+        if ($core.isUndefined(appName))
             throw 'appi.checkAppName @appName is invalid. Is undefined';
 
-        if (!isString(appName))
+        if (!$core.isString(appName))
             throw 'appi.checkAppName @appName is invalid. Is not a string';
 
         // TODO: Melhorar para uso de única expressão regular ao invés

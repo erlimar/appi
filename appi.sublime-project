@@ -23,6 +23,13 @@
             "file_exclude_patterns": []
         },
         {
+            "name": "Building",
+            "path": "build",
+            "follow_symlinks": true,
+            "folder_exclude_patterns": [],
+            "file_exclude_patterns": []
+        },
+        {
             "name": "Distribution",
             "path": "dist",
             "follow_symlinks": true,

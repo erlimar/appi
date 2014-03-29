@@ -50,7 +50,7 @@
         var paramStack_ = [];
 
         for (var argIndex = 0; argIndex < arguments.length; argIndex++) {
-            if (isFunction(arguments[argIndex]))
+            if ($core.isFunction(arguments[argIndex]))
                 methodStack_.push(arguments[argIndex]);
             else
                 paramStack_.push(arguments[argIndex]);
@@ -64,7 +64,7 @@
             // A própria função é passada como ponteiro "this" enquando
             // "appi.setup" ainda não for chamada, ou o escopo não tenha sido
             // informado.
-            var this_ = isUndefined(settings_.scope) ? function_ : settings_.scope;
+            var this_ = $core.isUndefined(settings_.scope) ? function_ : settings_.scope;
             function_.apply(this_, paramStack_);
         }
     };

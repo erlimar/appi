@@ -1,0 +1,8 @@
+///
+/// @module <%= modules.core.name %>
+/// <%= modules.core.description %>
+///
+/// Base de dependências compartilhadas onde a biblioteca APPI e seus módulos são
+/// construídos.
+///
+(function(root, undefined) {

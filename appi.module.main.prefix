@@ -1,0 +1,7 @@
+///
+/// @module <%= modules.main.name %>
+/// <%= modules.main.description %>
+///
+/// Módulo principal da biblioteca Appi.
+///
+(function(root, undefined) {

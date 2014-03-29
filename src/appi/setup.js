@@ -55,8 +55,6 @@
 
             settings_.appName = checkAppName(args[0].appName || 'App');
 
-            trace(settings_.appName);
-
             if (typeof (args[0].appMock || {}) != 'object')
                 throw 'appi.setup @settings.appMock is invalid';
             settings_.appMock = args[0].appMock || {};

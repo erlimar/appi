@@ -4,7 +4,7 @@
      * @description
      *
      * Cria um objeto com propriedades que referenciam os argumentos de uma
-     * função
+     * função.
      *
      * @param {Arguments} objectArguments   Objeto com os argumentos
      * @param {object} typeDefs             Definição de tipos dos argumentos

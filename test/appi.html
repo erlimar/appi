@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta encoding="UTF-8">
+    <title>appi</title>
+    <!--
+    <script src="../build/appi.core.js"></script>
+    <script src="../build/appi.js"></script>
+    <!---->
+    <!--
+    <script src="../dist/appi.js"></script>
+    <!---->
+    <!---->
+    <script src="../dist/appi.min.js"></script>
+    <!---->
+</head>
+<body>
+<script>
+appi.trace('Setup()!');
+appi.setup({
+    scope: window,
+    appName: 'MyApplication',
+    appMock: {
+        mockTest: function(){
+            console.log('This is a mock test!');
+        }
+    },
+    builtinName: '__MyApplicationBuiltin__',
+    environment: {
+        APP_TITLE: 'Título da aplicação',
+        APP_VERSION: '1.0.0.0',
+        APP_COPYRIGHT: 'Copyright (C) 2014 Erlimar Silva Campos'
+    },
+    valueToDiscarding: 'Valor para ser desconsiderado pelo Setup!'
+});
+
+function MyFunction(paramA, b, Ce){
+    "Function to Describe!";
+};
+
+var timer = 0;
+appi.timer(1000, function(){
+    appi.trace('Timer:', ++timer);
+    var description = appi.describeFunction(MyFunction);
+    appi.trace('name: ', description.name);
+    appi.trace('params: ', description.params);
+    appi.isolate(
+        function(){
+            appi.trace(MyApplication);
+            MyApplication.mockTest();
+        },
+        function(text){
+            appi.trace(text);
+        },
+        appi.env.APP_COPYRIGHT
+    )
+}, 3);
+</script>
+</body>
+</html>

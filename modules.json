@@ -1,7 +1,14 @@
 {
+  "core": {
+    "name":"appi.core",
+    "description":"Appi JavaScript Library (Core module)"
+  },
+  "main": {
+    "name":"appi.main",
+    "description":"Appi JavaScript Library (Main module)"
+  },
   "test": {
     "name":"appi.test",
-    "version":"0.0.1",
-    "description":"Appi Unit Test JavaScript Library"
+    "description":"Appi JavaScript Library (Unit Test module)"
   }
 }

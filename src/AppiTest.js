@@ -2,6 +2,11 @@
 
     var $root = root;
 
+    if(!$root.AppiCore)
+        throw '@AppiCore required';
+
+    var $core = new $root.AppiCore();
+
     /**
      * Construtor
      */

@@ -7,10 +7,10 @@
         if(!$root.appi)
             throw '@appi is required';
         
-        // Instancia um objeto de AppiTest como 'appi.test' no escopo ROOT
+        // Instancia um objeto de AppiTest como 'appi.test'
         $root.appi.test = new AppiTest();
         // Publica os objetos e funções na instância criada
-        extend($root.appi.test, {
+        $core.extend($root.appi.test, {
             'unit': unit
         });
     }

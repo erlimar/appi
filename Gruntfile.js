@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ngdocs');
 
     grunt.initConfig({
+        buildPath: './build',
         distPath: './dist',
         pkg: grunt.file.readJSON('package.json'),
         modules: grunt.file.readJSON('modules.json'),
@@ -15,48 +16,61 @@ module.exports = function(grunt) {
             options: {
                 separator: '\n\n'
             },
-            appi: {
+            appiCore: {
                 options: {
-                    banner: grunt.file.read('src/appi.prefix'),
-                    footer: grunt.file.read('src/appi.sufix')
+                    banner: grunt.file.read('appi.module.core.prefix'),
+                    footer: grunt.file.read('appi.module.sufix')
+                },
+                src: [
+                    'src/AppiCore.js', 
+                    'src/appi.core/private/*.js',
+                    'src/appi.core/*.js'
+                ],
+                dest: '<%= buildPath %>/<%= modules.core.name %>.js'
+            },
+            appiMain: {
+                options: {
+                    banner: grunt.file.read('appi.module.main.prefix'),
+                    footer: grunt.file.read('appi.module.sufix')
                 },
                 src: [
                     'src/Appi.js', 
                     'src/appi/private/*.js',
-                    'src/shared/*.js',
                     'src/appi/*.js'
                 ],
-                dest: '<%= distPath %>/<%= pkg.name %>.js'
+                dest: '<%= buildPath %>/<%= pkg.name %>.js'
             },
             appiTest: {
                 options: {
-                    banner: grunt.file.read('src/appi.test.prefix'),
-                    footer: grunt.file.read('src/appi.test.sufix')
+                    banner: grunt.file.read('appi.module.test.prefix'),
+                    footer: grunt.file.read('appi.module.sufix')
                 },
                 src: [
                     'src/AppiTest.js',
                     'src/appi.test/private/*.js',
-                    'src/shared/*.js',
                     'src/appi.test/*.js'
                 ],
-                dest: '<%= distPath %>/<%= modules.test.name %>.js'
+                dest: '<%= buildPath %>/<%= modules.test.name %>.js'
+            },
+            appiDist: {
+                options: {
+                    banner: grunt.file.read('appi.dist.banner')
+                },
+                src: [
+                    '<%= concat.appiCore.dest %>',
+                    '<%= concat.appiMain.dest %>',
+                    '<%= concat.appiTest.dest %>'
+                ],
+                dest: '<%= distPath %>/<%= pkg.name %>.js'
             }
         },
         uglify: {
             appi: {
                 options: {
-                    banner: grunt.file.read('src/appi.banner')
+                    banner: grunt.file.read('appi.dist.min.banner')
                 },
                 files: {
-                    '<%= distPath %>/<%= pkg.name %>.min.js': ['<%= concat.appi.dest %>']
-                }
-            },
-            appiTest: {
-                options: {
-                    banner: grunt.file.read('src/appi.test.banner')
-                },
-                files: {
-                    '<%= distPath %>/<%= modules.test.name %>.min.js': ['<%= concat.appiTest.dest %>']
+                    '<%= distPath %>/<%= pkg.name %>.min.js': ['<%= concat.appiDist.dest %>']
                 }
             }
         },
