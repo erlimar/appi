@@ -6,6 +6,7 @@
         throw '@AppiCore required';
 
     var $core = new $root.AppiCore();
+    var $session; // Iniciado em install()
 
     /**
      * Construtor

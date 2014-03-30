@@ -10,6 +10,9 @@
     function isBoolean(varObject) {
         var is_ = (typeof varObject === typeof true);
 
+        if(!is_)
+            is_ = varObject instanceof Boolean;
+
         if(!is_ && isString(varObject))
             is_ = ['true', 'false'].indexOf(varObject.toLowerCase()) >= 0;
 

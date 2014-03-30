@@ -27,6 +27,9 @@
             'isString': isString,
             'isDefined': isDefined,
             'isUndefined': isUndefined,
+            'isObject': isObject,
+            'isDate': isDate,
+            'isRegExp': isRegExp,
             'readyArguments': readyArguments
         });
     }

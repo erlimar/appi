@@ -51,6 +51,22 @@
             }
         }
     });
+    appi.test.unit({
+        component: 'Componente de Mock',
+        setup: function(){
+            // TODO
+        },
+        scenario: {
+            name: 'Caminho Torto!',
+            description: 'Simulando vários erros que o usuário pode cometer.',
+            premisses: {
+                'Outra premissa'
+                : function(environment){
+                    // TODO PREMISSA
+                }
+            }
+        }
+    });
 
     // Dev mode activate
     appi.timer(10000, function(){

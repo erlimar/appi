@@ -4,15 +4,12 @@
      * Objeto de premissa
      */
     function Premisse(){
-        extend(this, appi.readyArguments(arguments, {
-            'name':     appi.ARGS.string(),
-            'callback': appi.ARGS.function()
+        $core.extend(this, $core.readyArguments(arguments, {
+            'name':     $core.ARGS.string(),
+            'callback': $core.ARGS.function()
         }));
     };
 
     Premisse.prototype = {
-        constructor: Premisse,
-
-        name: null,
-        callback: null
+        constructor: Premisse
     };
