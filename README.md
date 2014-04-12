@@ -18,21 +18,23 @@
  que por sua vez é uma INTERFACE implementada pelo "back-end" e consumida pelo
  "front-end".
 
-> Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
-> <br/>
-> Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+```
+Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
+Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+```
 
 ## Ferramentas de desenvolvimento
 
 * Sublime Text
+    * Grunt
+    * HTML5
+    * JavaScript Snippets
+    * Markdown Extended
+    * Markdown Preview
+    * MarkdownEditing
 * Node.js
-* Grunt
-* grunt-contrib-uglify
-* grunt-contrib-qunit
-* grunt-contrib-concat
-* grunt-contrib-jshint
-* grunt-contrib-watch
-* grunt-contrib-copy
-* grunt-contrib-compress
-* grunt-contrib-clean
-* grunt-file
+    * Grunt
+    * grunt-contrib-concat
+    * grunt-contrib-uglify
+    * grunt-contrib-watch
+    * grunt-ngdocs

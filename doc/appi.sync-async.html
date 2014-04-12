@@ -1,0 +1,896 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body
+{
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+
+    background-color: white;
+    border-radius: 3px;
+    border: 3px solid #EEE;
+    box-shadow: inset 0 0 0 1px #CECECE;
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+    width: 912px;
+    padding: 30px;
+    margin: 2em auto;
+
+    color:#333333;
+}
+
+
+.body-classic{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:16px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+body>:first-child
+{
+  margin-top:0!important;
+}
+
+body>:last-child
+{
+  margin-bottom:0!important;
+}
+
+blockquote,dl,ol,p,pre,table,ul {
+  border: 0;
+  margin: 15px 0;
+  padding: 0;
+}
+
+body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: underline;
+}
+
+body a.absent
+{
+  color:#c00;
+}
+
+body a.anchor
+{
+  display:block;
+  padding-left:30px;
+  margin-left:-30px;
+  cursor:pointer;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0
+}
+
+/*h4,h5,h6{ font-weight: bold; }*/
+
+.octicon{
+  font:normal normal 16px sans-serif;
+  width: 1em;
+  height: 1em;
+  line-height:1;
+  display:inline-block;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased
+}
+
+.octicon-link {
+  background: url("data:image/svg+xml;utf8,<?xml version='1.0' standalone='no'?> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'> <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 832'> <metadata>Copyright (C) 2013 by GitHub</metadata> <!-- scale(0.01565557729941) --> <path transform='' d='M768 64h-192s-254 0-256 256c0 22 3 43 8 64h137c-11-19-18-41-18-64 0-128 128-128 128-128h192s128 0 128 128-128 128-128 128 0 64-64 128h64s256 0 256-256-256-256-256-256z m-72 192h-137c11 19 18 41 18 64 0 128-128 128-128 128h-192s-128 0-128-128 128-128 128-128-4-65 66-128h-66s-256 0-256 256 256 256 256 256h192s256 0 256-256c0-22-4-44-8-64z'/> </svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.octicon-link:before{
+  content:'\a0';
+}
+
+body h1,body h2,body h3,body h4,body h5,body h6{
+  margin:1em 0 15px;
+  padding:0;
+  font-weight:bold;
+  line-height:1.7;
+  cursor:text;
+  position:relative
+}
+
+body h1 .octicon-link,body h2 .octicon-link,body h3 .octicon-link,body h4 .octicon-link,body h5 .octicon-link,body h6 .octicon-link{
+  display:none;
+  color:#000
+}
+
+body h1:hover a.anchor,body h2:hover a.anchor,body h3:hover a.anchor,body h4:hover a.anchor,body h5:hover a.anchor,body h6:hover a.anchor{
+  text-decoration:none;
+  line-height:1;
+  padding-left:0;
+  margin-left:-22px;
+  top:15%
+}
+
+body h1:hover a.anchor .octicon-link,body h2:hover a.anchor .octicon-link,body h3:hover a.anchor .octicon-link,body h4:hover a.anchor .octicon-link,body h5:hover a.anchor .octicon-link,body h6:hover a.anchor .octicon-link{
+  display:inline-block
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code{
+  font-size:inherit
+}
+
+body h1{
+  font-size:2.5em;
+  border-bottom:1px solid #ddd
+}
+
+body h2{
+  font-size:2em;
+  border-bottom:1px solid #eee
+}
+
+body h3{
+  font-size:1.5em
+}
+
+body h4{
+  font-size:1.2em
+}
+
+body h5{
+  font-size:1em
+}
+
+body h6{
+  color:#777;
+  font-size:1em
+}
+
+body p,body blockquote,body ul,body ol,body dl,body table,body pre{
+  margin:15px 0
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code
+{
+  font-size:inherit;
+}
+
+
+body hr
+{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  /*background:transparent url(http://overblown.net/files/markdown/dirty-shade.png) repeat-x 0 0;*/
+  background-color: transparent;
+  background-position: 0;
+  border:0 none;
+  color:#ccc;
+  height:4px;
+  margin:15px 0;
+  padding:0;
+}
+
+body li p.first
+{
+  display:inline-block;
+}
+
+body ul,body ol
+{
+  padding-left:30px;
+}
+
+body ul.no-list,body ol.no-list
+{
+  list-style-type:none;
+  padding:0;
+}
+
+body ul ul,body ul ol,body ol ol,body ol ul
+{
+  margin-bottom:0;
+  margin-top:0;
+}
+
+body dl
+{
+  padding:0;
+}
+
+body dl dt
+{
+  font-size:14px;
+  font-style:italic;
+  font-weight:700;
+  margin-top:15px;
+  padding:0;
+}
+
+body dl dd
+{
+  margin-bottom:15px;
+  padding:0 15px;
+}
+
+body blockquote
+{
+  border-left:4px solid #DDD;
+  color:#777;
+  padding:0 15px;
+}
+
+body blockquote>:first-child
+{
+  margin-top:0;
+}
+
+body blockquote>:last-child
+{
+  margin-bottom:0;
+}
+
+body table
+{
+  display:block;
+  overflow:auto;
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
+}
+
+body table th
+{
+  font-weight:700;
+}
+
+body table th,body table td
+{
+  border:1px solid #ddd;
+  padding:6px 13px;
+}
+
+body table tr
+{
+  background-color:#fff;
+  border-top:1px solid #ccc;
+}
+
+body table tr:nth-child(2n)
+{
+  background-color:#f8f8f8;
+}
+
+body img
+{
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  max-width:100%;
+}
+
+body span.frame
+{
+  display:block;
+  overflow:hidden;
+}
+
+body span.frame>span
+{
+  border:1px solid #ddd;
+  display:block;
+  float:left;
+  margin:13px 0 0;
+  overflow:hidden;
+  padding:7px;
+  width:auto;
+}
+
+body span.frame span img
+{
+  display:block;
+  float:left;
+}
+
+body span.frame span span
+{
+  clear:both;
+  color:#333;
+  display:block;
+  padding:5px 0 0;
+}
+
+body span.align-center
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-center>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:center;
+}
+
+body span.align-center span img
+{
+  margin:0 auto;
+  text-align:center;
+}
+
+body span.align-right
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-right>span
+{
+  display:block;
+  margin:13px 0 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body span.align-right span img
+{
+  margin:0;
+  text-align:right;
+}
+
+body span.float-left
+{
+  display:block;
+  float:left;
+  margin-right:13px;
+  overflow:hidden;
+}
+
+body span.float-left span
+{
+  margin:13px 0 0;
+}
+
+body span.float-right
+{
+  display:block;
+  float:right;
+  margin-left:13px;
+  overflow:hidden;
+}
+
+body span.float-right>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body code,body tt
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  border-radius:3px;
+  margin:0 2px;
+  padding:0 5px;
+}
+
+body code
+{
+  white-space:nowrap;
+}
+
+
+code,pre{
+  font-family:Consolas, "Liberation Mono", Courier, monospace;
+  font-size:12px
+}
+
+body pre>code
+{
+  background:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+  white-space:pre;
+}
+
+body .highlight pre,body pre
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  font-size:13px;
+  line-height:19px;
+  overflow:auto;
+  padding:6px 10px;
+  border-radius:3px
+}
+
+body pre code,body pre tt
+{
+  background-color:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+body .task-list{
+  list-style-type:none;
+  padding-left:10px
+}
+
+.task-list-item{
+  padding-left:20px
+}
+
+.task-list-item label{
+  font-weight:normal
+}
+
+.task-list-item.enabled label{
+  cursor:pointer
+}
+
+.task-list-item+.task-list-item{
+  margin-top:5px
+}
+
+.task-list-item-checkbox{
+  float:left;
+  margin-left:-20px;
+  margin-top:7px
+}
+
+
+.highlight{
+  background:#ffffff
+}
+
+.highlight .c{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .err{
+  color:#a61717;
+  background-color:#e3d2d2
+}
+
+.highlight .k{
+  font-weight:bold
+}
+
+.highlight .o{
+  font-weight:bold
+}
+
+.highlight .cm{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cp{
+  color:#999999;
+  font-weight:bold
+}
+
+.highlight .c1{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cs{
+  color:#999999;
+  font-weight:bold;
+  font-style:italic
+}
+
+.highlight .gd{
+  color:#000000;
+  background-color:#ffdddd
+}
+
+.highlight .gd .x{
+  color:#000000;
+  background-color:#ffaaaa
+}
+
+.highlight .ge{
+  font-style:italic
+}
+
+.highlight .gr{
+  color:#aa0000
+}
+
+.highlight .gh{
+  color:#999999
+}
+
+.highlight .gi{
+  color:#000000;
+  background-color:#ddffdd
+}
+
+.highlight .gi .x{
+  color:#000000;
+  background-color:#aaffaa
+}
+
+.highlight .go{
+  color:#888888
+}
+
+.highlight .gp{
+  color:#555555
+}
+
+.highlight .gs{
+  font-weight:bold
+}
+
+.highlight .gu{
+  color:#800080;
+  font-weight:bold
+}
+
+.highlight .gt{
+  color:#aa0000
+}
+
+.highlight .kc{
+  font-weight:bold
+}
+
+.highlight .kd{
+  font-weight:bold
+}
+
+.highlight .kn{
+  font-weight:bold
+}
+
+.highlight .kp{
+  font-weight:bold
+}
+
+.highlight .kr{
+  font-weight:bold
+}
+
+.highlight .kt{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .m{
+  color:#009999
+}
+
+.highlight .s{
+  color:#d14
+}
+
+.highlight .n{
+  color:#333333
+}
+
+.highlight .na{
+  color:#008080
+}
+
+.highlight .nb{
+  color:#0086B3
+}
+
+.highlight .nc{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .no{
+  color:#008080
+}
+
+.highlight .ni{
+  color:#800080
+}
+
+.highlight .ne{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nf{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nn{
+  color:#555555
+}
+
+.highlight .nt{
+  color:#000080
+}
+
+.highlight .nv{
+  color:#008080
+}
+
+.highlight .ow{
+  font-weight:bold
+}
+
+.highlight .w{
+  color:#bbbbbb
+}
+
+.highlight .mf{
+  color:#009999
+}
+
+.highlight .mh{
+  color:#009999
+}
+
+.highlight .mi{
+  color:#009999
+}
+
+.highlight .mo{
+  color:#009999
+}
+
+.highlight .sb{
+  color:#d14
+}
+
+.highlight .sc{
+  color:#d14
+}
+
+.highlight .sd{
+  color:#d14
+}
+
+.highlight .s2{
+  color:#d14
+}
+
+.highlight .se{
+  color:#d14
+}
+
+.highlight .sh{
+  color:#d14
+}
+
+.highlight .si{
+  color:#d14
+}
+
+.highlight .sx{
+  color:#d14
+}
+
+.highlight .sr{
+  color:#009926
+}
+
+.highlight .s1{
+  color:#d14
+}
+
+.highlight .ss{
+  color:#990073
+}
+
+.highlight .bp{
+  color:#999999
+}
+
+.highlight .vc{
+  color:#008080
+}
+
+.highlight .vg{
+  color:#008080
+}
+
+.highlight .vi{
+  color:#008080
+}
+
+.highlight .il{
+  color:#009999
+}
+
+.highlight .gc{
+  color:#999;
+  background-color:#EAF2F5
+}
+
+.type-csharp .highlight .k{
+  color:#0000FF
+}
+
+.type-csharp .highlight .kt{
+  color:#0000FF
+}
+
+.type-csharp .highlight .nf{
+  color:#000000;
+  font-weight:normal
+}
+
+.type-csharp .highlight .nc{
+  color:#2B91AF
+}
+
+.type-csharp .highlight .nn{
+  color:#000000
+}
+
+.type-csharp .highlight .s{
+  color:#A31515
+}
+
+.type-csharp .highlight .sc{
+  color:#A31515
+}</style><title>appi.sync-async</title></head><body><h1>
+<a name="user-content-appisync--appiasync" class="anchor" href="#appisync--appiasync"><span class="octicon octicon-link"></span></a>appi.sync / appi.async</h1>
+
+<p>Padrões para chamada de métodos síncronos e assíncronos com <strong>appi</strong>.
+Esses padrões serão a base para a transparência no desenvolvimento de aplicações <em>locais (desktop)</em>, <em>mobile (embutidas)</em> e <em>Web API's</em>.</p>
+
+<p>Imagine que você têm um módulo já pronto (aqui vale ressaltar que, não importa se você está em uma aplicação <em>local</em>, <em>mobile</em> ou <em>Web API</em>).</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">myModule</span> <span class="o">=</span> <span class="nx">appi</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="s1">'mymodule'</span><span class="p">);</span>
+</pre></div>
+
+<p>De forma transparente você poderia simplesmente chamar um método qualquer:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">);</span>
+</pre></div>
+
+<p>Por trás dessa chamada, <strong>appi</strong> irá garantir uma chamada síncrona padrão, bloqueando a execução do script até o retorno da mesma. Isso poderia ser feito de forma explícita usando o código abaixo:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">appi</span><span class="p">.</span><span class="nx">sync</span><span class="p">(</span><span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span> <span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">);</span>
+</pre></div>
+
+<p>Neste momento você deve estar se perguntando: "Que vantagem tem nisso?", chamadas síncronas são o padrão em qualquer linguagem, além do quê, a primeira chamada é muito mais legível, simples, enfim <em>"A MELHOR OPÇÃO"</em>.</p>
+
+<p>Mas isso é relativo, se observarmos somente o caso onde <em>"chamamos"</em> funções simples esse é realmente um pensamento razoável.</p>
+
+<p>Mas falemos então sobre chamadas <strong>assíncronas</strong>. Você pode fazer uma de forma implícita assim:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">myResult</span><span class="p">;</span>
+<span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="s1">'param'</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exception</span><span class="p">){</span>
+        <span class="c1">// catch exception here</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Sem <em>enrolação</em>, vejamos a forma <em>excplícita</em> de fazermos uma chamada <strong>assíncrona</strong> com o código abaixo:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">myResult</span><span class="p">;</span>
+<span class="nx">appi</span><span class="p">.</span><span class="nx">async</span><span class="p">(</span><span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span> <span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">exception</span><span class="p">){</span>
+        <span class="c1">// catch exception here</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="user-content-arrazoando-sobre-o-assunto" class="anchor" href="#arrazoando-sobre-o-assunto"><span class="octicon octicon-link"></span></a>Arrazoando sobre o assunto</h2>
+
+<p>Voltando a primeira pergunta: <strong>"Que vantagem tem nisso?"</strong></p>
+
+<p>Se você analisar bem os códigos de exemplo apresentados, vai perceber que <strong>appi.sync</strong> e <strong>appi.async</strong> são simplesmente dois mecanismos para chamar uma função <em>JavaScript</em> qualquer e retornar seu resultado.</p>
+
+<p>Uma (<strong><em>appi.sync</em></strong>) simplesmente chama a função, guarda o retorno fornecida pela mesma, e o retorna imediatamente para a função que a chamou.</p>
+
+<p>A outra (<strong><em>appi.async</em></strong>) faz a mesma coisa, porém retorna imediatamente <em>(sempre que possível)</em> mesmo antes de ter um retorno da funcção pretendida, e quando o retorno da mesma for detectado, esse será sinalizado através das funções <em>callback's</em> passadas no <strong>último parâmetro</strong> da função, que por sua vez deve ser um <strong>objeto</strong> com a assinatura pré-definida como abaixo:</p>
+
+<div class="highlight highlight-js"><pre><span class="p">{</span>
+    <span class="nx">ok</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){},</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><strong>Ainda não vê vantagem nisso?</strong> Pois bem, continuemos arrazoando sobre o assunto.</p>
+
+<p>Em JavaScript, por padrão, quando falamos de assincronismo estamos nos referindo ao <em>famoso</em> padrão <strong>AJAX</strong>.</p>
+
+<blockquote>
+<p><strong>AJAX</strong> - Acrônimo para <em>Assincronous JavaScript And XML</em>: Quem hoje já não faz mas tanto sentido o nome, porque não se trabalha somente com XML, o JSON por exemplo é muito mais útil nos dias atuais - Mas como já <em>pegou</em> praquê mudar?)</p>
+</blockquote>
+
+<p>Mas não fique <em>preso</em> a este conceito, porque <strong>appi</strong> foi pensada para ser uma bibliteca facilitadora no desenvolvimento de aplicações <strong><em>fronta end</em></strong>, seja ela <em>local (Desktop ou Web Nativa)</em>, <em>mobile (embutida em aplicativos Android, iOS e Windows Phone - por exemplo, através de WebView)</em> e até mesmo _Web API (quase o mesmo conceito de "local").</p>
+
+<p>Quando trabalhamos com <em>JavaScript</em> em um navegador padrão, é razoável pensarmos assim, porque operações assíncronas estão diretamente relacionadas a <strong>AJAX</strong>, mas a <strong>File API</strong> também fornece estes recursos (essa é mais nova e talvez nem todos conheçam). Mas aplicações embutidas por exemplo, podem implementar como bem entender outros mecanismo que trabalhem de forma <strong>assíncrona</strong> <em>(como uma função de pesquisa de determinado recurso por exemplo)</em>.</p>
+
+<p>Partindo do entendimento que: "<strong>appi</strong> não é restrita a uso em navegadores", é de se esperar que ela esteja preparada para trabalhos de forma síncrona e assíncrona. E esses dois métodos (<strong>appi.sync</strong> e <strong>appi.async</strong>) são a base para abstração de um novo mecanismo de chamadas de funções dos dois tipos.</p>
+
+<h3>
+<a name="user-content-agora-sim" class="anchor" href="#agora-sim"><span class="octicon octicon-link"></span></a>Agora sim</h3>
+
+<p>Agora imagine que você entende os benefícios de se estar preparado para realizar chamada de funções dos dois tipos (<em>síncrona</em> e <em>assíncrona</em>) e pretende trabalhar com elas. Então você precisa fazer uma chamada padrão <em>síncrona</em>, você pode usar as formas explícitas:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Chamada síncrona</span>
+<span class="kd">var</span> <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">appi</span><span class="p">.</span><span class="nx">sync</span><span class="p">(</span><span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span> <span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">);</span>
+
+<span class="c1">// Chamada assíncrona</span>
+<span class="kd">var</span> <span class="nx">myResult</span><span class="p">;</span>
+<span class="nx">appi</span><span class="p">.</span><span class="nx">async</span><span class="p">(</span><span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span> <span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Imagino que aqui você já consiga perceber os benefícios para chamadas assíncronas. É bem mais simples no exemplo acima, do que por exemplo, para uma chamada <strong>AJAX</strong> usando <strong>jQuery</strong>:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">myResult</span><span class="p">;</span>
+<span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">'http://mysite.com/myresource'</span><span class="p">,</span>
+    <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xhrq</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">data</span><span class="p">){</span>
+        <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Em uma comparação superficial, podemos dizer que <strong>appi.async</strong> é equivalente a <strong>jQuery.ajax</strong>, mas isso só se compararmos a chamada em si e esquecermos do outro mecanismo de abstração de <strong>Web API</strong> que <strong>appi</strong> fornece (na verdade os dois se complementam).</p>
+
+<p>Essa porém é a forma <em>explícita</em> de chamada de métodos usando <strong>appi</strong>. Mas como foi dito antes: "Esses padrões serão a base para a transparência no desenvolvimento de aplicações".</p>
+
+<p>Você dificilmente irá fazer chamadas explícitas, normalmente você irá definir sua aplicação e seus módulos, e com isso <strong>appi</strong> envolverá seus métodos nativos com essas chamadas, permitindo através de uma chamada simples entender implicitamente uma chamada síncrona e assíncrona.</p>
+
+<p>Você pode usar as formas implícitas assim:</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// Chamada síncrona</span>
+<span class="kd">var</span> <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">);</span>
+
+<span class="c1">// Chamada assíncrona</span>
+<span class="kd">var</span> <span class="nx">myResult</span><span class="p">;</span>
+<span class="nx">myModule</span><span class="p">.</span><span class="nx">method</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="s1">'param 2'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">ok</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
+        <span class="nx">myResult</span> <span class="o">=</span> <span class="nx">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Pronto! A chamada <strong><em>síncrona</em></strong> foi resumida a uma chamada de método como o padrão <em>JavaScript</em>, e a chamada <strong><em>assíncrona</em></strong> foi também resumida a uma chamada padrão com a inclusão de um <strong><em>último parâmetro</em></strong> com assinatura específica.</p>
+
+<h2>
+<a name="user-content-resumo" class="anchor" href="#resumo"><span class="octicon octicon-link"></span></a>Resumo</h2>
+
+<p>O mecanismo de chamada de funções que <strong>appi</strong> provê, simplifica as chamadas de métodos assíncronos.</p>
+
+<p>Por trás o que <strong>appi</strong> faz é simplesmente identificar a assinatura dos métodos em busca do último parâmetro, se encontrar a <em>assinatura assíncrona</em> ela se encarrega de preparar o ambiente (seja para uma chamada <em>mobile embutida</em>, ou em uma <em>Web API</em>, ou seja qual for ele) realizar as chamadas e devolver o resultado conforme o esperado (através do RETURN para chamadas síncronas e através de CALLBACK quando assíncrona).</p>
+
+<p>O mecanismo também se encarrega de identificar as exceções e informá-las através do canal mais adequado. Por exemplo:</p>
+
+<ul>
+<li>Se for uma chamada <em>síncrona</em>, a exeção é levantada normalmente e espera-se que o chamador a trate;</li>
+<li>Se for uma chamada <em>assíncrona</em>, e há o método <strong>error</strong> definido, esse é sinalizado com o conteúdo da exceção via parâmetro; já se não houver a assinatura <strong>error</strong> a exceção também será levantada normalmente (<em>Veja nota abaixo</em>).</li>
+</ul><blockquote>
+<p><strong>NOTA:</strong> Fazer uma chamada <strong><em>assíncrona</em></strong> sem uma assinatura <strong>error</strong> não é recomendável, porque a exceção será levantada no escopo global e a referência de quem levantou, onde e qual a possível causa será de difícil identificação. Então, <strong>SEMPRE USE A ASSINATURA ERROR</strong>.</p>
+</blockquote></body></html>
