@@ -18,9 +18,11 @@
  que por sua vez é uma INTERFACE implementada pelo "back-end" e consumida pelo
  "front-end".
 
-```
-Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
-Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+```js
+/**
+ * Copyright (c) 2014 Erlimar Silva Campos http://erlimar.com
+ * Copyright (c) 2014 Eh Sistemas de Informática http://www.ehsistemas.com.br
+ */
 ```
 
 ## Ferramentas de desenvolvimento
