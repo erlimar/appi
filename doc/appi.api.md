@@ -38,32 +38,40 @@ Provê o conceito de ___clausure___ para executar uma parte de código isolada d
 
 Ao invés de utilizar uma declaração como:
 
-    (function(){
-      // Seu código
-    })()
+```js
+(function(){
+  // Seu código
+})()
+```
 
 Ou
 
-    +function(){
-      // Seu código
-    }()
+```js
++function(){
+  // Seu código
+}()
+```
 
 Você pode usar:
 
-    api.isolate(function(){
-      // Seu código
-    })
+```js
+api.isolate(function(){
+  // Seu código
+})
+```
 
 Se preferir pode usar várias funções em lote:
 
-    api.isolate(
-      function(){
-        // Seu código #1
-      },
-      function(){
-        // Seu código #2
-      }
-    )
+```js
+api.isolate(
+  function(){
+    // Seu código #1
+  },
+  function(){
+    // Seu código #2
+  }
+)
+```
 
 ### Parâmetros
 

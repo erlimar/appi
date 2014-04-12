@@ -5,15 +5,21 @@ Esses padrões serão a base para a transparência no desenvolvimento de aplica�
 
 Imagine que você têm um módulo já pronto (aqui vale ressaltar que, não importa se você está em uma aplicação _local_, _mobile_ ou _Web API_).
 
-    var myModule = appi.import('mymodule');
+```js
+var myModule = appi.import('mymodule');
+```
 
 De forma transparente você poderia simplesmente chamar um método qualquer:
 
-    var result = myModule.method(param1, 'param 2');
+```js
+var result = myModule.method(param1, 'param 2');
+```
 
 Por trás dessa chamada, __appi__ irá garantir uma chamada síncrona padrão, bloqueando a execução do script até o retorno da mesma. Isso poderia ser feito de forma explícita usando o código abaixo:
 
-    var result = appi.sync(myModule.method, param1, 'param 2');
+```js
+var result = appi.sync(myModule.method, param1, 'param 2');
+```
 
 Neste momento você deve estar se perguntando: "Que vantagem tem nisso?", chamadas síncronas são o padrão em qualquer linguagem, além do quê, a primeira chamada é muito mais legível, simples, enfim _"A MELHOR OPÇÃO"_.
 
@@ -21,27 +27,31 @@ Mas isso é relativo, se observarmos somente o caso onde _"chamamos"_ funções 
 
 Mas falemos então sobre chamadas __assíncronas__. Você pode fazer uma de forma implícita assim:
 
-    var myResult;
-    myModule.method(param', 'param 2', {
-        ok: function(result){
-            myResult = result;
-        },
-        error: function(exception){
-            // catch exception here
-        }
-    });
+```js
+var myResult;
+myModule.method('param', 'param 2', {
+    ok: function(result){
+        myResult = result;
+    },
+    error: function(exception){
+        // catch exception here
+    }
+});
+```
 
 Sem _enrolação_, vejamos a forma _excplícita_ de fazermos uma chamada __assíncrona__ com o código abaixo:
 
-    var myResult;
-    appi.async(myModule.method, param1, 'param 2', {
-        ok: function(result){
-            myResult = result;
-        },
-        error: function(exception){
-            // catch exception here
-        }
-    });
+```js
+var myResult;
+appi.async(myModule.method, param1, 'param 2', {
+    ok: function(result){
+        myResult = result;
+    },
+    error: function(exception){
+        // catch exception here
+    }
+});
+```
 
 ## Arrazoando sobre o assunto
 
@@ -53,10 +63,12 @@ Uma (___appi.sync___) simplesmente chama a função, guarda o retorno fornecida 
 
 A outra (___appi.async___) faz a mesma coisa, porém retorna imediatamente _(sempre que possível)_ mesmo antes de ter um retorno da funcção pretendida, e quando o retorno da mesma for detectado, esse será sinalizado através das funções _callback's_ passadas no __último parâmetro__ da função, que por sua vez deve ser um __objeto__ com a assinatura pré-definida como abaixo:
 
-    {
-        ok: function(){},
-        error: function(){}
-    }
+```js
+{
+    ok: function(){},
+    error: function(){}
+}
+```
 
 __Ainda não vê vantagem nisso?__ Pois bem, continuemos arrazoando sobre o assunto.
 
@@ -74,26 +86,30 @@ Partindo do entendimento que: "__appi__ não é restrita a uso em navegadores", 
 
 Agora imagine que você entende os benefícios de se estar preparado para realizar chamada de funções dos dois tipos (_síncrona_ e _assíncrona_) e pretende trabalhar com elas. Então você precisa fazer uma chamada padrão _síncrona_, você pode usar as formas explícitas:
 
-    // Chamada síncrona
-    var myResult = appi.sync(myModule.method, param1, 'param 2');
+```js
+// Chamada síncrona
+var myResult = appi.sync(myModule.method, param1, 'param 2');
 
-    // Chamada assíncrona
-    var myResult;
-    appi.async(myModule.method, param1, 'param 2', {
-        ok: function(result){
-            myResult = result;
-        }
-    })
+// Chamada assíncrona
+var myResult;
+appi.async(myModule.method, param1, 'param 2', {
+    ok: function(result){
+        myResult = result;
+    }
+});
+```
 
 Imagino que aqui você já consiga perceber os benefícios para chamadas assíncronas. É bem mais simples no exemplo acima, do que por exemplo, para uma chamada __AJAX__ usando __jQuery__:
 
-    var myResult;
-    jQuery.ajax({
-        url: 'http://mysite.com/myresource',
-        success: function(xhrq, status, data){
-            myResult = data;
-        }
-    });
+```js
+var myResult;
+jQuery.ajax({
+    url: 'http://mysite.com/myresource',
+    success: function(xhrq, status, data){
+        myResult = data;
+    }
+});
+```
 
 Em uma comparação superficial, podemos dizer que __appi.async__ é equivalente a __jQuery.ajax__, mas isso só se compararmos a chamada em si e esquecermos do outro mecanismo de abstração de __Web API__ que __appi__ fornece (na verdade os dois se complementam).
 
@@ -103,16 +119,18 @@ Você dificilmente irá fazer chamadas explícitas, normalmente você irá defin
 
 Você pode usar as formas implícitas assim:
 
-    // Chamada síncrona
-    var myResult = myModule.method(param1, 'param 2');
+```js
+// Chamada síncrona
+var myResult = myModule.method(param1, 'param 2');
 
-    // Chamada assíncrona
-    var myResult;
-    myModule.method(param1, 'param 2', {
-        ok: function(result){
-            myResult = result;
-        }
-    });
+// Chamada assíncrona
+var myResult;
+myModule.method(param1, 'param 2', {
+    ok: function(result){
+        myResult = result;
+    }
+});
+```
 
 Pronto! A chamada ___síncrona___ foi resumida a uma chamada de método como o padrão _JavaScript_, e a chamada ___assíncrona___ foi também resumida a uma chamada padrão com a inclusão de um ___último parâmetro___ com assinatura específica.
 
