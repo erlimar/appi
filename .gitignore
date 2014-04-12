@@ -4,6 +4,7 @@ dist/
 doc/*.html
 
 *.sublime-workspace
+*.sublime-grunt.cache
 *.log
 
 README.html

@@ -98,10 +98,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', [
-        'concat',
-        'uglify',
-        /*'ngdocs',*/
-        /*'watch'*/
-    ]);
+    grunt.registerTask('default', ['concat', 'uglify', 'ngdocs']);
 };
