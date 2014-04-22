@@ -50,7 +50,7 @@
                 //throw new Error('IViewer.finishingPremisse not Implemented!');
                 console.log('                                         ', elapsed, '  -> [' + (passed ? 'YES' : 'NO') + ']');
                 if(!passed){
-                    console.log('                                         *** ERROR *** [' + failure + ']');
+                    console.log('                                         *** [' + failure + '] ***');
                 }
             },
 

@@ -11,13 +11,11 @@
      *
      * TODO: Verificar nomenclatura com relação ao inglês
      */
-    function ExpectEvaluator(expected) {
+    function ExpectEvaluator(expectedValue) {
         // Selftest
         if (arguments.length !== 1)
             throw 'appi.test#ExpectEvaluator argument signature is invalid';
 
-        var expectedValue = expected;
-        
         /* Lista de avaliadores disponíveis. Esses podrão ser usados na execução
          * das premissas, no objeto `this.expect`:
          * 
@@ -61,7 +59,10 @@
              * esperados. Nesse caso o valor experado deve ser um ARRAY.
              */
             contains: function(received) {
-                throw new Error('appi.test#ExpectEvaluator#contains Not Implemented!');
+                if(!Array.isArray(expectedValue) && typeof expectedValue !== typeof '')
+                    throw new Error('appi.test#ExpectEvaluator#contains @expectedValue is not a Array or String!');
+
+                return !(0 > expectedValue.indexOf(received));
             },
 
             /**
@@ -71,7 +72,10 @@
              * deve ser um ARRAY.
              */
             in: function(received) {
-                throw new Error('appi.test#ExpectEvaluator#in Not Implemented!');
+                if(!Array.isArray(received) && typeof received !== typeof '')
+                    throw new Error('appi.test#ExpectEvaluator#in @received is not a Array or String!');
+
+                return !(0 > received.indexOf(expectedValue));
             }
         };
 
@@ -98,12 +102,27 @@
                  * TODO: Corrigir BUG em caso de erro com NOT evaluator. Deve apresentar algo como
                  *       Expected: NOT {VALUE} [type]
                  *       Received: {VALUE} [type]
+                 *
+                 * TODO: Melhorar a forma como as mensagens são apresentadas. A mesma não faz sentido
+                 *       quando usadas com os avaliadores "contains" e "in" por exemplo.
                  */
                 if(!evaluator(value))
                     throw new Error('Expected: ' + expectedValue  
-                        + ' [' + (typeof expectedValue) + ']'+ '\n'
+                        + ' <' + (typeof expectedValue).toUpperCase() + '>'+ ', '
                         + 'Received: ' + value 
-                        + ' [' + (typeof value) + ']');
+                        + ' <' + (typeof value).toUpperCase() + '>');
+
+                /* Retornamos o próprio SET de avaliadores para permitir o uso "aninhado" de
+                 * testes:
+                 *
+                 * <code>
+                 this.expected(X)
+                     .equals(Y)
+                     .not.equals(Z)
+                     .same(W);
+                 * </code>
+                 */
+                return expectEvaluator_;
             }
         };
 

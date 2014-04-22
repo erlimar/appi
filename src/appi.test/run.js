@@ -44,6 +44,7 @@
                 $session.viewer.startingScenario(scenarioPub_, timeMachine_.now());
 
                 var premisseIdx_ = 0;
+                var environment_ = scenario_.setup();
                 while(scenario_.premisses.length > premisseIdx_){
                     var premisse_ = scenario_.premisses[premisseIdx_];
                     var premissePub_ = {
@@ -57,7 +58,10 @@
 
                     try{
                         // Calle callbac test
-                        premisse_.callback();
+                        var this_ = {
+                            expected: ExpectEvaluator
+                        };
+                        premisse_.callback.bind(this_, environment_).call();
                         premissePassed_ = true;
                     }catch(error){
                         premissePassed_ = false;

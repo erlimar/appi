@@ -35,14 +35,35 @@
             premisses: {
                 'Premissa A'
                 : function(environment) {
-                    var a, b, c;
+                    var a = 1, b = 2, c = 0;
+
+                    this.expected(environment.numbers).contains(10);
+                    this.expected(59).in(environment.numbers);
+
+                    this.expected(environment.valueA).contains('de A');
+                    this.expected('de B').in(environment.valueB);
+
+                    this.expected('1').equals(a);
+                    this.expected('2').equals(b);
+                    this.expected('0').equals(c);
+
+                    this.expected('1').not.same(a);
+                    this.expected('2').not.same(b);
+                    this.expected('0').not.same(c);
+
                     a = b + c;
+
+                    this.expected(2)
+                        .equals(a)
+                        .same(a)
+                        .not.equals(c)
+                        .not.same(c);
                 },
 
                 'Premissa B'
                 : function(environment) {
-                    expected(2).equals('1' + '1');
-                    exception(function(){
+                    this.expected(2).equals('1' + '1');
+                    this.exception(function(){
                       new MyException('ops!');
                     }).same(new MyException('ops!'));
                 },
