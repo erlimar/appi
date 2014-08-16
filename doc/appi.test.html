@@ -796,13 +796,13 @@ body .task-list{
 <h3>
 <a name="user-content-gr%C3%A1fico-de-depend%C3%AAncias" class="anchor" href="#gr%C3%A1fico-de-depend%C3%AAncias"><span class="octicon octicon-link"></span></a>Gráfico de dependências</h3>
 
-<pre><code>                          +============+
-                          | SESSION    |
-                          +============+
-                  +-----@ | components |
-                  |       +============+
-                  |
-                  |
+<pre><code>                          +=============+
+                          | SESSION     |
+                          +=============+
+                  +-----@ | components  |
+                  |       +-------------+
+                  |       | getTestInfo |
+                  |       +=============+
                   |
 +===========+     |
 | COMPONENT | &lt;&lt;--+

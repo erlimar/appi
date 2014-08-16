@@ -796,7 +796,7 @@ body .task-list{
         if not componentPassed then set runPassed &lt;= {FALSE}
     end loop
     set runTimeElapsed &lt;= {CURRENT TIME - runTimeBegin}
-    if componentPassed is {NONE} then set runPassed &lt;= {TRUE}
+    if runPassed is {NONE} then set runPassed &lt;= {TRUE}
     call viewer.finishing &lt;= runTimeElapsed, runPassed
 end run
 </code></pre>
