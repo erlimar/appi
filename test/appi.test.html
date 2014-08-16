@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta encoding="UTF-8">
+    <meta charset="UTF-8">
     <title>appi.test</title>
     <!--
     <script src="../build/appi.core.js"></script>
@@ -35,6 +35,8 @@
             premisses: {
                 'Premissa A'
                 : function(environment) {
+                    var a, b, c;
+                    a = b + c;
                 },
 
                 'Premissa B'
@@ -47,6 +49,7 @@
 
                 'Premissa C'
                 : function(environment) {
+                    return false;
                 }
             }
         }
@@ -68,10 +71,7 @@
         }
     });
 
-    // Dev mode activate
-    appi.timer(10000, function(){
-        location.reload();
-    });
+    appi.test.run('MyID', 5);
 </script>
 </body>
 </html>

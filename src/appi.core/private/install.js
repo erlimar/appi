@@ -16,7 +16,8 @@
                 'any': ARGSTypeAny,
                 'array': ARGSTypeArray,
                 'function': ARGSTypeFunction,
-                'string': ARGSTypeString
+                'string': ARGSTypeString,
+                'object': ARGSTypeObject
             },
             'describeFunction': describeFunction,
             'extend': extend,

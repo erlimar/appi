@@ -46,7 +46,7 @@ begin run
         if not componentPassed then set runPassed <= {FALSE}
     end loop
     set runTimeElapsed <= {CURRENT TIME - runTimeBegin}
-    if componentPassed is {NONE} then set runPassed <= {TRUE}
+    if runPassed is {NONE} then set runPassed <= {TRUE}
     call viewer.finishing <= runTimeElapsed, runPassed
 end run
 ```

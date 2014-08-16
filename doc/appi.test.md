@@ -46,13 +46,13 @@ appi.test.unit({
 ### Gráfico de dependências
 
 ```
-                          +============+
-                          | SESSION    |
-                          +============+
-                  +-----@ | components |
-                  |       +============+
-                  |
-                  |
+                          +=============+
+                          | SESSION     |
+                          +=============+
+                  +-----@ | components  |
+                  |       +-------------+
+                  |       | getTestInfo |
+                  |       +=============+
                   |
 +===========+     |
 | COMPONENT | <<--+
