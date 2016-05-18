@@ -67,4 +67,4 @@
             var this_ = $core.isUndefined(settings_.scope) ? function_ : settings_.scope;
             function_.apply(this_, paramStack_);
         }
-    };
+    }

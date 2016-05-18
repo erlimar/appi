@@ -9,4 +9,4 @@
      */
     function isNumber(varObject) {
         return (typeof varObject === typeof 0 || varObject instanceof Number);
-    };
+    }

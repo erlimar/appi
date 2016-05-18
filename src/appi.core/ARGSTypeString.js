@@ -16,4 +16,4 @@
             hasDefault: !isUndefined(defaultValue),
             default: defaultValue
         }; 
-    };
+    }

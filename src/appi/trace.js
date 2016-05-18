@@ -6,7 +6,7 @@
      */
     var $logger = function() {
         /* DISCARDING ALL */
-    };
+    }
 
     /**
      * appi.trace
@@ -18,5 +18,6 @@
     var trace = $logger.bind(this);
 
     // Se console.log está disponível, ele é usado no lugar de $logger
-    if ($root.console  && $root.console.log && $core.isFunction($root.console.log))
+    if ($root.console  && $root.console.log && $core.isFunction($root.console.log)) {
         trace = $root.console.log.bind(console);
+    }

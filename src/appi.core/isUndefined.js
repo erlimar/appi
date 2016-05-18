@@ -13,4 +13,4 @@
      */
     function isUndefined(varObject) {
         return (typeof varObject === typeof undefined);
-    };
+    }

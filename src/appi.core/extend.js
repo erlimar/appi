@@ -11,4 +11,4 @@
         //       mesmo nome disponível na biblioteca AngularJS
         for(var prop in props)
             obj[prop] = props[prop];
-    };
+    }

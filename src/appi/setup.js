@@ -96,4 +96,4 @@
         // Exportando a instância da aplicação para o escopo root
         var scopeRef_ = settings_.scope;
         scopeRef_[settings_.appName] = scopeRef_[settings_.builtinName] || settings_.appMock;
-    };
+    }

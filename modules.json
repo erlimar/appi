@@ -9,6 +9,12 @@
   },
   "test": {
     "name":"appi.test",
-    "description":"Appi JavaScript Library (Unit Test module)"
+    "description":"Appi JavaScript Library (Unit Test module)",
+    "viewer": {
+      "html": {
+        "name":"appi.test.viewer-html",
+        "description":"HTML Viewer for Appi JavaScript Library"
+      }
+    }
   }
 }

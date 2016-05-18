@@ -8,8 +8,8 @@
             'name':     $core.ARGS.string(),
             'callback': $core.ARGS.function()
         }));
-    };
+    }
 
     Premisse.prototype = {
         constructor: Premisse
-    };
+    }

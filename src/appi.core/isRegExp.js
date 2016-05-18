@@ -9,4 +9,4 @@
      */
     function isRegExp(varObject) {
         return (varObject instanceof RegExp);
-    };
+    }

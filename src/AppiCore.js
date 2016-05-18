@@ -6,8 +6,8 @@
      * Construtor
      */
     function AppiCore(){
-    };
+    }
 
     AppiCore.prototype= {
         constructor: AppiCore
-    };
+    }

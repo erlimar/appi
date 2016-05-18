@@ -57,4 +57,4 @@
         }.bind(this, { counter: counter_, data: data_ }), timeOut);
 
         return handle_;
-    };
+    }

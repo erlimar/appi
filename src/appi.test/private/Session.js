@@ -8,7 +8,7 @@
             'components': $core.ARGS.array([]),
             'viewer': $core.ARGS.object({})
         }));
-    };
+    }
 
     Session.prototype = {
         constructor: Session,
@@ -107,4 +107,4 @@
             
             return publicDescription_;
         }
-    };
+    }

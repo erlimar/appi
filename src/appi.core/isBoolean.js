@@ -20,4 +20,4 @@
             is_ = varObject == 0 || varObject == 1;
         
         return is_;
-    };
+    }

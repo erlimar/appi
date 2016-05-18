@@ -11,7 +11,7 @@
             'environment':  $core.ARGS.any(null),
             'setup':        $core.ARGS.function(function(){ return {}; })
         }));
-    };
+    }
 
     Scenario.prototype = {
         constructor: Scenario,
@@ -24,4 +24,4 @@
             this.premisses.push(premisse_);
             return premisse_;
         }
-    };
+    }

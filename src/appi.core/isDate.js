@@ -9,4 +9,4 @@
      */
     function isDate(varObject) {
         return (varObject instanceof Date);
-    };
+    }

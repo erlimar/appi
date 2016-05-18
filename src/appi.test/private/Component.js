@@ -37,4 +37,4 @@
             this.scenarios.push(scenarioAdded_);
             return scenarioAdded_;
         }
-    };
+    }

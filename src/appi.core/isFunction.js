@@ -9,4 +9,4 @@
      */
     function isFunction(varObject) {
         return (typeof varObject === typeof function () { });
-    };
+    }

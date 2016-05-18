@@ -9,4 +9,4 @@
      */
     function isArray(varObject) {
         return (Array.isArray(varObject));
-    };
+    }

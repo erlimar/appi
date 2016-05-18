@@ -9,4 +9,4 @@
      */
     function isString(varObject) {
         return (typeof varObject === typeof '');
-    };
+    }

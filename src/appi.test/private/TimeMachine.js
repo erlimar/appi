@@ -20,4 +20,4 @@
             var last_ = stack_.pop();
             return (new Date) - last_;
         };
-    };
+    }

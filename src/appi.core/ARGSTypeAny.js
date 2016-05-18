@@ -16,4 +16,4 @@
             hasDefault: true,
             default: undefined
         };
-    };
+    }

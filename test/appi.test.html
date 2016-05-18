@@ -1,98 +1,268 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>appi.test</title>
-    <!--
-    <script src="../build/appi.core.js"></script>
-    <script src="../build/appi.js"></script>
-    <script src="../build/appi.test.js"></script>
-    <!---->
     <script src="../dist/appi.js"></script>
-    <!--
-    <script src="../dist/appi.min.js"></script>
-    <!---->
+    <script src="../dist/appi.test.viewer-html.js"></script>
+    <style type="text/css">
+      body {
+        margin: 0;
+        font-family: 'Arial Narrow', 'Nimbus Sans L', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      #TestContainer {
+        border-top: solid;
+        border-bottom: solid;
+        border-left: none;
+        border-right: none;
+        border-color: steelblue;
+        border-width: medium;
+        padding: 10px;
+        background-color: aliceblue;
+        cursor: default;
+      }
+      span.result {
+        border-style: solid;
+        border-width: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 6px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 10pt;
+      }
+      .container li {
+        background-color: white;
+      }
+      
+      ul {
+        margin: 0;
+        list-style-position: outside;
+        list-style: none;
+        padding: 0;
+      }
+      ul li {
+        border: solid;
+        border-width: 1px;
+        border-color: lightblue;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px;
+      }
+      ul ul li {
+        border-style: solid;
+      }
+      .container .ok {
+        background-color: rgba(9, 212, 0, 0.20);
+        border-color: rgba(9, 212, 0, 0.50);
+      }
+      .container .failure {
+        background-color: rgba(212, 0, 0, 0.20);
+        border-color: rgba(212, 0, 0, 0.50);
+      }
+      .copyright {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: solid 1px steelblue;
+        background-color: aliceblue;
+        margin-top: 10px;
+        font-size: 8pt;
+      }
+      .copyright p {
+        text-align: center;
+        margin-top:5px;
+        margin-bottom:5px;
+        color: lightslategray;
+      }
+    </style>
 </head>
 <body>
-<script>
+  <h1>AppiTest</h1>
+  <h3>Test Page for HTML Viewer</h3>
+  <div id="TestContainer">
+    <div class="container">
+      <ul>
+        <li>
+          Component A
+          <ul>
+            <li>
+              Scenario 1
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result ok">
+              Scenario 2
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result failure">
+              Scenario 3
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="result ok">
+          Component B
+          <ul>
+            <li>
+              Scenario 1
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result ok">
+              Scenario 2
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result failure">
+              Scenario 3
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li class="result failure">
+          Component C
+          <ul>
+            <li>
+              Scenario 1
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result ok">
+              Scenario 2
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+            <li class="result failure">
+              Scenario 3
+              <ul>
+                <li>Premisse a</li>
+                <li class="result ok">Premisse b</li>
+                <li class="result failure">Premisse c</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>Copyright (c) 2014-2014 Erlimar Silva Campos</p>
+    <p>Copyright (c) 2014-2014 Eh Sistemas de Informática</p>
+  </div>
+  <script>
     appi.test.unit({
-        component: 'Componente de Mock',
-        setup: function(){
-            var environment_ = {
-              valueA: 'Valor de A',
-              valueB: 'Valor de B',
-              numbers: [98, 8, 4, 59, 10]
-            };
-            return  environment_;
-        },
-        scenario: {
-            name: 'Caminho Feliz!',
-            description: [
-              'Partindo do pré-suposto que o usuário irá sempre fazer o que se espera',
-              'que ele faça, e você pode duvidar que isso aconteça. As premissas devem',
-              'ser atendidas perfeitamente.'
-            ],
-            premisses: {
-                'Premissa A'
-                : function(environment) {
-                    var a = 1, b = 2, c = 0;
+      component: 'Componente de Mock',
+      setup: function () {
+        var environment_ = {
+          valueA: 'Valor de A',
+          valueB: 'Valor de B',
+          numbers: [98, 8, 4, 59, 10]
+        };
+        return environment_;
+      },
+      scenario: {
+        name: 'Caminho Feliz!',
+        description: [
+          'Partindo do pré-suposto que o usuário irá sempre fazer o que se espera',
+          'que ele faça, e você pode duvidar que isso aconteça. As premissas devem',
+          'ser atendidas perfeitamente.'
+        ],
+        premisses: {
+          'Premissa A'
+          : function (environment) {
+            var a = 1, b = 2, c = 0;
 
-                    this.expected(environment.numbers).contains(10);
-                    this.expected(59).in(environment.numbers);
+            this.expected(environment.numbers).contains(10);
+            this.expected(59).in(environment.numbers);
 
-                    this.expected(environment.valueA).contains('de A');
-                    this.expected('de B').in(environment.valueB);
+            this.expected(environment.valueA).contains('de A');
+            this.expected('de B').in(environment.valueB);
 
-                    this.expected('1').equals(a);
-                    this.expected('2').equals(b);
-                    this.expected('0').equals(c);
+            this.expected('1').equals(a);
+            this.expected('2').equals(b);
+            this.expected('0').equals(c);
 
-                    this.expected('1').not.same(a);
-                    this.expected('2').not.same(b);
-                    this.expected('0').not.same(c);
+            this.expected('1').not.same(a);
+            this.expected('2').not.same(b);
+            this.expected('0').not.same(c);
 
-                    a = b + c;
+            a = b + c;
 
-                    this.expected(2)
-                        .equals(a)
-                        .same(a)
-                        .not.equals(c)
-                        .not.same(c);
-                },
+            this.expected(2)
+                .equals(a)
+                .same(a)
+                .not.equals(c)
+                .not.same(c);
+          },
 
-                'Premissa B'
-                : function(environment) {
-                    this.expected(2).equals('1' + '1');
-                    this.exception(function(){
-                      new MyException('ops!');
-                    }).same(new MyException('ops!'));
-                },
+          'Premissa B'
+          : function (environment) {
+            this.expected(2).equals('1' + '1');
+            this.exception(function () {
+              new MyException('ops!');
+            }).same(new MyException('ops!'));
+          },
 
-                'Premissa C'
-                : function(environment) {
-                    return false;
-                }
-            }
+          'Premissa C'
+          : function (environment) {
+            return false;
+          }
         }
+      }
     });
     appi.test.unit({
-        component: 'Componente de Mock',
-        setup: function(){
-            // TODO
-        },
-        scenario: {
-            name: 'Caminho Torto!',
-            description: 'Simulando vários erros que o usuário pode cometer.',
-            premisses: {
-                'Outra premissa'
-                : function(environment){
-                    // TODO PREMISSA
-                }
-            }
+      component: 'Componente de Mock',
+      setup: function () {
+        // TODO
+      },
+      scenario: {
+        name: 'Caminho Torto!',
+        description: 'Simulando vários erros que o usuário pode cometer.',
+        premisses: {
+          'Outra premissa'
+          : function (environment) {
+            // TODO PREMISSA
+          }
         }
+      }
     });
 
-    appi.test.run('MyID', 5);
-</script>
+    appi.test.run('TestContainer');
+  </script>
 </body>
+
 </html>

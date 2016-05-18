@@ -42,4 +42,4 @@
             descriptor_.params[i] = descriptor_.params[i].trim();
 
         return descriptor_;
-    };
+    }

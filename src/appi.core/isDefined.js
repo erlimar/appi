@@ -13,4 +13,4 @@
      */
     function isDefined(varObject) {
         return (typeof varObject !== typeof undefined);
-    };
+    }

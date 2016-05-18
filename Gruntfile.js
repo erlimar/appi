@@ -52,6 +52,18 @@ module.exports = function(grunt) {
                 ],
                 dest: '<%= buildPath %>/<%= modules.test.name %>.js'
             },
+            appiTestViewerHtml: {
+                options: {
+                    banner: grunt.file.read('appi.module.test.viewer.html.prefix'),
+                    footer: grunt.file.read('appi.module.sufix')
+                },
+                src: [
+                    'src/appi.test.viewer/appiTestViewerHtml.js',
+                    'src/appi.test.viewer/html/private/*.js',
+                    'src/appi.test.viewer/html/*.js'
+                ],
+                dest: '<%= distPath %>/<%= modules.test.viewer.html.name %>.js'
+            },
             appiDist: {
                 options: {
                     banner: grunt.file.read('appi.dist.banner')
@@ -72,10 +84,18 @@ module.exports = function(grunt) {
                 files: {
                     '<%= distPath %>/<%= pkg.name %>.min.js': ['<%= concat.appiDist.dest %>']
                 }
+            },
+            appiTestViewerHtml: {
+                options: {
+                    banner: grunt.file.read('appi.dist.component.min.banner')
+                },
+                files: {
+                    '<%= distPath %>/<%= modules.test.viewer.html.name %>.min.js': ['<%= concat.appiTestViewerHtml.dest %>']
+                }
             }
         },
         watch: {
-            files: ['src/**', 'package.json', 'modules.json', 'Gruntfile.js'],
+            files: ['src/**', '*.banner', '*.prefix', '*.sufix', 'package.json', 'modules.json', 'Gruntfile.js'],
             tasks: ['default']
         },
         ngdocs: {

@@ -20,4 +20,4 @@
             && !isNumber(varObject)
             && !isBoolean(varObject)
             && !isRegExp(varObject));
-    };
+    }
